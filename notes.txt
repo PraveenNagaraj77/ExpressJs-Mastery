@@ -1,0 +1,20 @@
+What is Express.js? ✅
+
+Express.js is a minimal and flexible web application framework built on top of Node.js that simplifies backend development by providing features such as routing, middleware, request and response handling, and error management. While Node.js provides the runtime environment and low-level HTTP capabilities, Express abstracts much of the repetitive boilerplate code, allowing developers to build scalable and maintainable web applications and REST APIs more efficiently. It is widely adopted in production because of its simplicity, performance, and rich middleware ecosystem.
+
+Why Express.js? ✅
+
+Express.js was created to simplify backend development in Node.js by reducing the boilerplate code required when working with the native HTTP module. While Node.js provides low-level APIs for creating web servers, developers must manually handle routing, request parsing, response handling, and error management. Express abstracts these repetitive tasks by offering features like routing, middleware, and simplified request-response handling, enabling developers to build scalable, maintainable, and production-ready web applications and REST APIs more efficiently.
+
+
+Express.js vs Node.js HTTP Module ✅
+
+The Node.js HTTP module is a built-in module that provides low-level APIs for creating web servers and handling HTTP requests and responses. Developers must manually implement routing, request parsing, response handling, and error management. Express.js is a lightweight framework built on top of the HTTP module that abstracts these repetitive tasks by providing features such as routing, middleware, simplified request-response handling, and centralized error management. While the HTTP module offers greater control and flexibility, Express improves developer productivity, code maintainability, and scalability, making it the preferred choice for building modern web applications and REST APIs.
+
+Express Architecture ✅
+
+Express.js follows a layered architecture where every incoming HTTP request passes through multiple stages before a response is sent back to the client. First, Node.js receives the HTTP request and forwards it to the Express application. Express then executes registered middleware in sequence, matches the appropriate route based on the request URL and HTTP method, invokes the corresponding route handler to execute the business logic, and finally sends the response to the client. This architecture promotes modularity, maintainability, scalability, and clean separation of concerns, making Express suitable for building production-ready web applications and REST APIs.
+
+What is the Request-Response Cycle? ✅
+
+The Request-Response Cycle is the complete process through which a client communicates with an Express.js server. It begins when the client sends an HTTP request, which is received by Node.js and forwarded to the Express application. Express processes the request by executing middleware, matching the appropriate route, and running the corresponding route handler where the business logic is performed. Finally, Express sends an HTTP response back to the client, completing the lifecycle. This cycle is repeated independently for every incoming request, making it the foundation of all Express.js applications.
