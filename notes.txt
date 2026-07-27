@@ -18,3 +18,56 @@ Express.js follows a layered architecture where every incoming HTTP request pass
 What is the Request-Response Cycle? ✅
 
 The Request-Response Cycle is the complete process through which a client communicates with an Express.js server. It begins when the client sends an HTTP request, which is received by Node.js and forwarded to the Express application. Express processes the request by executing middleware, matching the appropriate route, and running the corresponding route handler where the business logic is performed. Finally, Express sends an HTTP response back to the client, completing the lifecycle. This cycle is repeated independently for every incoming request, making it the foundation of all Express.js applications.
+
+How Do You Install Express.js? ✅
+
+Express.js is installed using the Node Package Manager (NPM) because it is a third-party framework and not a built-in Node.js module. After initializing a Node.js project with npm init, Express can be installed using the command npm install express. This downloads Express along with its dependencies into the node_modules directory and updates the package.json and package-lock.json files. Once installed, Express can be imported into the application using require("express") or the ES module import syntax, depending on the project configuration.
+
+
+What is Nodemon? ✅
+
+Nodemon is a development tool for Node.js and Express.js applications that automatically restarts the server whenever it detects changes in the project's source files. It monitors the application during development, eliminating the need to manually stop and restart the server after every code change. Nodemon improves developer productivity and is intended only for development environments, not for production deployments
+
+
+What is Configuration in Express.js? ✅
+
+Configuration in Express.js refers to the centralized management of application settings such as server ports, database connections, API keys, authentication secrets, and other environment-specific values. Proper configuration separates application settings from business logic, making the application easier to maintain, more secure, and adaptable to different environments like development, testing, and production.
+
+What is Routing? ✅
+
+Routing is the process of mapping an incoming HTTP request to a specific route handler based on the request's HTTP method and URL path. In Express.js, routing allows developers to define how an application responds to different client requests using methods such as app.get(), app.post(), app.put(), and app.delete(). It simplifies request handling by organizing application endpoints into clear and maintainable routes, making backend applications easier to develop and scale.
+
+What are Route Methods in Express.js? ✅
+
+Route methods in Express.js are functions such as app.get(), app.post(), app.put(), app.patch(), and app.delete() that define how an application responds to different HTTP methods for a specific URL. Express matches both the HTTP method and the URL path before executing the corresponding route handler. These methods form the foundation of RESTful API development by representing operations such as retrieving, creating, updating, and deleting resources.
+
+What are Route Parameters in Express.js? ✅
+
+Route Parameters in Express.js are dynamic values embedded within the URL path that allow applications to capture variable data from incoming requests. They are defined using a colon (:) followed by a parameter name, such as /users/:id. When a request matches the route, Express automatically extracts the parameter values and stores them in the req.params object. Route parameters are commonly used to identify specific resources, such as users, products, or orders, in RESTful APIs.
+
+What are Query Parameters in Express.js? ✅
+
+Query Parameters in Express.js are optional key-value pairs appended to the URL after a question mark (?) to send additional information with an HTTP request. They are commonly used for filtering, searching, sorting, and pagination without changing the route itself. Express automatically parses query parameters and makes them available through the req.query object, where all values are received as strings by default.
+
+
+What are Multiple Route Handlers in Express.js? ✅
+
+Multiple Route Handlers in Express.js allow multiple callback functions to process a single HTTP request for the same route. Each handler performs a specific task and passes control to the next handler using the next() function. This approach promotes separation of concerns, improves code readability, and enables reusable request-processing logic such as logging, authentication, validation, and authorization before the final response is sent to the client.
+
+
+What is Route Chaining in Express.js? ✅
+
+Route Chaining in Express.js is a feature that allows multiple HTTP methods to be grouped together for the same URL using the app.route() method. Instead of defining separate route declarations for each HTTP method, developers can chain methods such as .get(), .post(), .put(), .patch(), and .delete() on a single route. This reduces code duplication, improves readability, and makes route definitions easier to maintain in RESTful applications.
+
+What is Express Router? ✅
+
+Express Router is a built-in feature of Express.js that enables developers to organize application routes into modular and reusable components. It creates a mini Express application that can define its own routes and middleware, which are later mounted onto the main application using app.use(). Express Router improves code organization, maintainability, and scalability by grouping related routes into separate modules, making it a standard practice in production Express applications.
+
+
+What is Modular Routing in Express.js? ✅
+
+Modular Routing in Express.js is the practice of organizing application routes into separate router modules based on features or resources, such as users, products, orders, or authentication. Each module uses an Express Router instance and is mounted onto the main application using app.use(). This approach improves code organization, maintainability, scalability, and team collaboration, making it the standard routing structure for production Express.js applications.
+
+What is Router-Level Middleware in Express.js? ✅
+
+Router-Level Middleware in Express.js is middleware that is attached to an Express Router using router.use() or specific router methods. It executes only for requests handled by that router, allowing developers to apply feature-specific functionality such as authentication, authorization, validation, or logging without affecting the entire application. Router-Level Middleware improves modularity, code reusability, and maintainability by grouping common processing logic within related routes.
