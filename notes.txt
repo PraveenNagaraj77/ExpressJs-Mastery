@@ -71,3 +71,36 @@ Modular Routing in Express.js is the practice of organizing application routes i
 What is Router-Level Middleware in Express.js? ✅
 
 Router-Level Middleware in Express.js is middleware that is attached to an Express Router using router.use() or specific router methods. It executes only for requests handled by that router, allowing developers to apply feature-specific functionality such as authentication, authorization, validation, or logging without affecting the entire application. Router-Level Middleware improves modularity, code reusability, and maintainability by grouping common processing logic within related routes.
+
+
+What is Middleware in Express.js? ✅
+
+Middleware in Express.js is a function that executes during the request-response cycle and has access to the request object (req), response object (res), and the next() function. It is used to perform tasks such as logging, authentication, authorization, validation, request parsing, and error handling before passing control to the next middleware or route handler. Middleware promotes modular, reusable, and maintainable application design.
+
+What is Middleware Execution Flow in Express.js? ✅
+
+Middleware Execution Flow in Express.js is the sequential process in which middleware functions and route handlers are executed while handling an HTTP request. Express processes middleware in the order they are registered. Each middleware performs its task and calls the next() function to pass control to the next middleware or matching route handler. If a middleware sends a response or does not call next(), the execution flow stops and the remaining middleware or route handlers are not executed.
+
+
+
+What are the different types of Middleware in Express.js? ✅
+
+Express.js provides five main types of middleware: Application-Level Middleware, Router-Level Middleware, Built-in Middleware, Third-Party Middleware, and Error-Handling Middleware. Application-Level Middleware runs across the application, Router-Level Middleware applies to specific routers, Built-in Middleware provides core Express functionality such as JSON parsing and static file serving, Third-Party Middleware extends Express using external packages, and Error-Handling Middleware centrally manages application errors. Together, these middleware types help build modular, reusable, and scalable Express applications.
+
+
+What is Application-Level Middleware in Express.js? ✅
+
+Application-Level Middleware in Express.js is middleware that is registered using app.use() or app.METHOD() and executes for incoming requests that match the configured path or HTTP method. It is commonly used for application-wide functionalities such as logging, authentication, request parsing, validation, and security. Application-Level Middleware promotes code reusability, maintainability, and separation of concerns by executing common logic before the request reaches the route handler.
+
+What is Custom Middleware in Express.js? ✅
+
+Custom Middleware in Express.js is a user-defined middleware function created to perform application-specific tasks during the request-response cycle. It receives the request object (req), response object (res), and the next() function. Developers commonly use custom middleware for logging, authentication, authorization, validation, request timing, and other reusable functionality. Custom Middleware improves modularity, code reusability, maintainability, and separation of concerns in Express applications.
+
+
+What is Third-Party Middleware in Express.js? ✅
+
+Third-Party Middleware in Express.js consists of middleware packages developed by the community and installed through npm to extend the functionality of Express applications. Common examples include Morgan for HTTP request logging, CORS for enabling cross-origin requests, Helmet for adding security headers, Cookie Parser for parsing cookies, Compression for compressing responses, and Express Rate Limit for protecting APIs from excessive requests. These middleware packages help developers build secure, maintainable, and production-ready applications without reinventing common functionality.
+
+What is Chaining Middleware in Express.js? ✅
+
+Chaining Middleware in Express.js is the process of executing multiple middleware functions sequentially for a single request before it reaches the final route handler. Each middleware performs a specific responsibility, such as logging, authentication, authorization, or validation, and passes control to the next middleware using the next() function. Chaining Middleware promotes modularity, code reusability, maintainability, and separation of concerns, making Express applications easier to scale and manage.
