@@ -123,3 +123,8 @@ Multiple Static Directories in Express.js allow an application to serve static f
 What is Caching of Static Assets in Express.js? ✅
 
 Caching Static Assets in Express.js is the process of allowing browsers to store static resources such as CSS, JavaScript, images, fonts, and videos locally for a specified duration using HTTP caching headers. Express.js supports this through the express.static() middleware with options like maxAge, which sets the Cache-Control header. Caching reduces unnecessary network requests, decreases server load, improves application performance, and provides a faster user experience.
+
+
+What is a Template Engine in Express.js? ✅
+
+A Template Engine in Express.js is a tool used to generate dynamic HTML pages by combining HTML templates with data supplied by the server. Instead of serving fixed HTML files, it replaces placeholders in the template with runtime data and sends the generated HTML to the client. Template engines improve code reusability, simplify maintenance, and enable server-side rendering. Common template engines used with Express.js include EJS, Pug, and Handlebars, with EJS being one of the most popular choices.
