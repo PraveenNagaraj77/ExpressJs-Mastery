@@ -128,3 +128,77 @@ Caching Static Assets in Express.js is the process of allowing browsers to store
 What is a Template Engine in Express.js? ✅
 
 A Template Engine in Express.js is a tool used to generate dynamic HTML pages by combining HTML templates with data supplied by the server. Instead of serving fixed HTML files, it replaces placeholders in the template with runtime data and sends the generated HTML to the client. Template engines improve code reusability, simplify maintenance, and enable server-side rendering. Common template engines used with Express.js include EJS, Pug, and Handlebars, with EJS being one of the most popular choices.
+
+An API (Application Programming Interface) is a set of rules and protocols that allows different software applications to communicate with each other. It acts as an intermediary between a client and a server, enabling the client to request data or perform operations while the server processes the request and returns an appropriate response. APIs are widely used to connect web applications, mobile applications, databases, and third-party services.
+
+
+What is an API? ✅
+
+An API (Application Programming Interface) is a communication interface that enables different software applications to exchange data and functionality through predefined rules. In web development, a client sends an HTTP request to an API, the server processes the request, performs the required business logic or database operations, and returns a structured response, typically in JSON format. APIs provide abstraction, improve modularity, enhance security by hiding internal implementation details, and enable seamless integration between different systems.
+
+What is REST? ✅
+
+REST (Representational State Transfer) is an architectural style for designing web APIs that communicate over HTTP. It represents application data as resources identified by unique URIs and uses standard HTTP methods such as GET, POST, PUT, PATCH, and DELETE to perform operations on those resources. REST promotes stateless communication, a uniform interface, scalability, and simplicity, making it the most widely used approach for developing modern web services.
+
+What are the REST Principles? ✅
+
+REST Principles are architectural constraints that define how RESTful APIs should be designed. They include Client-Server Architecture, Stateless Communication, Cacheability, Uniform Interface, Layered System, and the optional Code on Demand principle. These constraints help create APIs that are scalable, maintainable, secure, and easy to integrate by ensuring clear separation of responsibilities, independent requests, standardized resource access, and efficient communication.
+
+What are HTTP Methods? ✅
+
+HTTP Methods are standardized request methods that specify the operation a client wants to perform on a resource in a REST API. Common methods include GET for retrieving data, POST for creating resources, PUT for replacing existing resources, PATCH for partially updating resources, and DELETE for removing resources. They enable predictable, consistent, and RESTful communication between clients and servers.
+
+What are CRUD Operations? ✅
+
+CRUD Operations are the four basic operations performed on data in an application: Create, Read, Update, and Delete. In RESTful APIs, these operations map to HTTP methods—POST for creating resources, GET for reading resources, PUT or PATCH for updating resources, and DELETE for removing resources. CRUD forms the foundation of backend development and is implemented in almost every web application that manages data.
+
+What are Route Parameters? ✅
+
+Route Parameters are dynamic values included in the URL that identify a specific resource. In Express.js, they are declared using a colon (:), such as /students/:id, and accessed through req.params. They are commonly used to retrieve, update, or delete individual resources by their unique identifiers, making routes reusable and scalable.
+
+What are Query Parameters? ✅
+
+Query Parameters are optional key-value pairs appended to a URL after the question mark (?). They are used to filter, search, sort, paginate, or customize the data returned by a REST API. In Express.js, query parameters are accessed using req.query. Unlike route parameters, they do not identify a specific resource but instead modify the response based on the client's request.
+
+
+What is Request Body? ✅
+
+The Request Body contains data sent by the client to the server during HTTP requests, primarily with POST, PUT, and PATCH methods. In Express.js, the express.json() middleware parses incoming JSON data and makes it available through req.body. It is commonly used to create new resources or update existing ones while keeping URLs clean and maintaining a structured communication format between the client and server.
+
+What are Request Headers? ✅
+
+Request Headers are key-value pairs sent by the client along with an HTTP request to provide metadata about the request. They contain information such as authentication tokens, content type, accepted response formats, and client details. In Express.js, headers are accessed using req.headers or req.get(). They play a crucial role in authentication, content negotiation, API security, and communication between clients and servers.
+
+
+What are JSON Responses? ✅
+
+JSON Responses are the standard format used by REST APIs to send structured data from the server to the client. In Express.js, the res.json() method converts JavaScript objects into JSON, automatically sets the Content-Type header to application/json, and sends the response. JSON is lightweight, easy to parse, and supported by virtually every programming language, making it the preferred data exchange format for modern web applications.
+
+
+What are HTTP Status Codes? ✅
+
+HTTP Status Codes are standardized three-digit numbers returned by a server to indicate the outcome of an HTTP request. They help clients understand whether a request was successful, failed due to invalid input, lacked authorization, referenced a missing resource, or encountered a server error. Using appropriate status codes improves API consistency, debugging, and adherence to RESTful standards.
+
+
+
+What is Pagination? ✅
+
+Pagination is the technique of dividing a large dataset into smaller pages to improve performance and user experience. Instead of returning all records, the server returns only a subset based on parameters such as page and limit. In Express.js, pagination is commonly implemented using query parameters along with the formula skip = (page - 1) × limit, and then retrieving records using array slicing or database queries.
+
+What are Filtering and Sorting? ✅
+
+Filtering and Sorting are common REST API operations used to customize the response returned to clients. Filtering selects only the records that match specified criteria, while Sorting arranges those records in ascending or descending order. In Express.js, these features are typically implemented using query parameters, allowing clients to retrieve exactly the data they need without creating multiple endpoints.
+
+What is API Versioning? ✅
+
+API Versioning is the process of maintaining multiple versions of an API so that new features or breaking changes can be introduced without affecting existing clients. The most common approach is URL versioning, where endpoints are prefixed with versions such as /api/v1 and /api/v2. This ensures backward compatibility while allowing the API to evolve over time.
+
+How do you handle asynchronous errors in Express.js? ✅
+
+Asynchronous errors are typically handled using async/await together with try...catch. If an asynchronous operation such as a database query or API request fails, the exception is caught inside the catch block. In production applications, instead of sending the response directly from each route, the error is forwarded using next(error) to a centralized error-handling middleware, ensuring consistent error responses and avoiding duplicate code.
+
+
+
+What is next(error) in Express.js? ✅
+
+next(error) is an Express function used to forward an error from a route or middleware to the centralized error-handling middleware. When it is called, Express skips all remaining normal middleware and routes, finds the first error-handling middleware (identified by the signature (err, req, res, next)), and executes it. This avoids duplicate error-handling code and provides consistent responses across the application.
