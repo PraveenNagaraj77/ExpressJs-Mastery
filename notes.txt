@@ -202,3 +202,39 @@ Asynchronous errors are typically handled using async/await together with try...
 What is next(error) in Express.js? ✅
 
 next(error) is an Express function used to forward an error from a route or middleware to the centralized error-handling middleware. When it is called, Express skips all remaining normal middleware and routes, finds the first error-handling middleware (identified by the signature (err, req, res, next)), and executes it. This avoids duplicate error-handling code and provides consistent responses across the application.
+
+What is Authentication? ✅
+🎤 Interview Explanation
+
+Authentication is the process of verifying the identity of a user before allowing access to an application or its resources. It answers the question, "Who are you?" In modern web applications, authentication is commonly implemented using email and password. After successful verification, the server generates a JWT token or creates a session, which is used to identify the user in subsequent requests without requiring them to log in again. If the credentials are invalid, the server responds with a 401 Unauthorized status code.
+
+Authentication verifies the identity of a user, while Authorization determines what that authenticated user is allowed to access. Authentication answers "Who are you?" whereas Authorization answers "What are you allowed to do?". Authentication always happens before Authorization. If authentication fails, the server returns 401 Unauthorized. If authentication succeeds but the user lacks permission, the server returns 403 Forbidden.
+
+Stateful vs Stateless Authentication ✅
+🎤 Interview Explanation
+
+Stateful Authentication stores the user's login information on the server. Every request is validated using session data stored on the server. Stateless Authentication does not store user information on the server. Instead, the server issues a JWT token to the client after login, and the client sends that token with every request. The server verifies the token without maintaining session state, making Stateless Authentication more scalable and suitable for modern REST APIs and microservices.
+
+
+Why Passwords Should Never Be Stored in Plain Text? ✅
+🎤 Interview Explanation
+
+Passwords should never be stored in plain text because if the database is compromised, attackers can immediately view every user's password. Instead, passwords should be hashed using a strong one-way hashing algorithm such as bcrypt. During login, the entered password is hashed and compared with the stored hash. Since hashing is a one-way process, the original password cannot be retrieved from the stored hash, significantly improving application security.
+
+Hashing, Encryption, and Encoding serve different purposes. Hashing is a one-way process used to securely store passwords and verify data integrity, and the original data cannot be recovered. Encryption is a two-way process used to protect sensitive data during storage or transmission, where the original data can be decrypted using a key. Encoding is a reversible transformation used to convert data into a different format for compatibility or transmission, such as Base64 encoding. Passwords should always be hashed using algorithms like bcrypt, not encrypted or encoded.
+
+bcrypt is a password hashing library used to securely store user passwords. It uses a one-way hashing algorithm with salting, making it computationally expensive to crack passwords using brute-force or rainbow table attacks. During user registration, passwords are hashed before being stored in the database. During login, bcrypt compares the entered password with the stored hash without revealing the original password.
+
+What is Salt & Salt Rounds? ✅
+🎤 Interview Explanation
+
+A Salt is a randomly generated value that bcrypt adds to a password before hashing it. This ensures that even if two users have the same password, their stored hashes are different. Salt protects against rainbow table attacks and makes password cracking much harder. Salt Rounds determine the computational cost of hashing. Higher salt rounds increase security by making hashing slower, but they also require more processing time. In most production applications, 10 to 12 salt rounds provide a good balance between security and performance.
+
+
+JWT is a stateless authentication mechanism where, after successful login, the server generates a signed token containing user information such as ID or role. The client stores this token and sends it in the Authorization header with future requests. The server verifies the token's signature before granting access to protected resources, eliminating the need to maintain server-side sessions.
+
+A JWT consists of three parts separated by dots: Header, Payload, and Signature. The Header contains metadata about the token, the Payload contains claims such as the user ID and role, and the Signature ensures the token has not been modified. The server verifies the signature using a secret key before trusting the token.
+
+WT verification is the process of validating a token received from the client using the server's secret key. The server checks whether the token's signature is valid and whether it has expired. If the verification succeeds, the payload is decoded and trusted; otherwise, access is denied.
+
+Authentication Middleware is an Express middleware that protects private routes. It reads the JWT from the Authorization header, verifies it using jwt.verify(), attaches the decoded user information to req.user, and calls next(). If the token is missing or invalid, it returns a 401 Unauthorized response.
