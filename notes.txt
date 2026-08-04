@@ -252,3 +252,7 @@ RBAC grants access based on roles such as admin, manager, or user. Permission-ba
 
 
 In my Express application, authentication and authorization are handled using middleware. Authentication is implemented using JWT. After a successful login, the server generates a signed JWT containing the user's identity and role. The authentication middleware extracts the Bearer token from the Authorization header, verifies it, and attaches the decoded user information to req.user. Authorization is then handled separately using role-based and permission-based middleware. Role-based middleware checks whether the user's role is allowed, while permission-based middleware provides more granular access control such as products:create or products:delete.
+
+Validation is the process of checking whether incoming request data satisfies the application's expected rules. Sanitization is the process of cleaning or transforming that data into a safe and consistent format before processing it. In Express, validation is commonly implemented as middleware so invalid requests can be rejected before reaching the controller.
+
+Production validation is a structured validation strategy used in real applications to ensure that all external input is validated consistently before reaching business logic. It includes validating request bodies, parameters, query strings, headers, nested data, arrays, allowed fields, and enforcing consistent error responses.
