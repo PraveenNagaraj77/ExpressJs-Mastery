@@ -256,3 +256,13 @@ In my Express application, authentication and authorization are handled using mi
 Validation is the process of checking whether incoming request data satisfies the application's expected rules. Sanitization is the process of cleaning or transforming that data into a safe and consistent format before processing it. In Express, validation is commonly implemented as middleware so invalid requests can be rejected before reaching the controller.
 
 Production validation is a structured validation strategy used in real applications to ensure that all external input is validated consistently before reaching business logic. It includes validating request bodies, parameters, query strings, headers, nested data, arrays, allowed fields, and enforcing consistent error responses.
+
+Multer is an Express middleware used to handle multipart/form-data, which is the encoding typically used when uploading files through HTTP forms. Express's express.json() middleware cannot process file uploads, so Multer parses the incoming multipart request and makes uploaded files available through req.file or req.files.
+
+Multer is used to handle multipart/form-data requests, particularly when files are uploaded. Express's JSON parser doesn't process multipart file data, so Multer parses the request and exposes uploaded files through req.file or req.files.
+
+How would you design a production-ready file upload API in Express?"
+
+You can answer:
+
+I would use Multer for multipart/form-data handling. I would configure disk or external object storage depending on the application's architecture, validate MIME types and file sizes, limit the number of uploaded files, generate unique server-side filenames, and organize files into controlled directories. I would separate the upload configuration, middleware, routes, and controller instead of putting everything into app.js. I would also implement proper Multer error handling and avoid exposing sensitive files publicly. For scalable production systems, I would generally prefer object storage rather than relying on the local filesystem.
