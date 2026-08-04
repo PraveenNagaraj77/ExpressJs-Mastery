@@ -238,3 +238,17 @@ A JWT consists of three parts separated by dots: Header, Payload, and Signature.
 WT verification is the process of validating a token received from the client using the server's secret key. The server checks whether the token's signature is valid and whether it has expired. If the verification succeeds, the payload is decoded and trusted; otherwise, access is denied.
 
 Authentication Middleware is an Express middleware that protects private routes. It reads the JWT from the Authorization header, verifies it using jwt.verify(), attaches the decoded user information to req.user, and calls next(). If the token is missing or invalid, it returns a 401 Unauthorized response.
+
+
+Authorization is the process of determining whether an authenticated user has permission to access a resource or perform an operation. In RBAC, users are assigned roles such as user, manager, or admin, and middleware checks whether the authenticated user's role is included in the allowed roles. Authentication middleware runs first to identify the user, followed by authorization middleware to check permissions.
+
+
+"What is the difference between RBAC and permission-based authorization?"
+
+Say:
+
+RBAC grants access based on roles such as admin, manager, or user. Permission-based authorization goes one level deeper by checking specific actions the user is allowed to perform, such as products:create or products:delete. A role can be mapped to multiple permissions, which provides more granular and flexible access control.
+
+
+
+In my Express application, authentication and authorization are handled using middleware. Authentication is implemented using JWT. After a successful login, the server generates a signed JWT containing the user's identity and role. The authentication middleware extracts the Bearer token from the Authorization header, verifies it, and attaches the decoded user information to req.user. Authorization is then handled separately using role-based and permission-based middleware. Role-based middleware checks whether the user's role is allowed, while permission-based middleware provides more granular access control such as products:create or products:delete.

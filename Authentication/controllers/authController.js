@@ -7,9 +7,9 @@ const generateToken = require("../utils/generateToken");
 
 const registerUser = async (req, res) => {
   try {
-    const { name, email, password } = req.body;
+    const { name, email, password , role } = req.body;
 
-    if (!name || !email || !password) {
+    if (!name || !email || !password || !role) {
       return res.status(400).json({
         success: false,
         message: "All fields are required",
@@ -48,6 +48,7 @@ const registerUser = async (req, res) => {
       name,
       email,
       password: hashedPassword,
+      role:role || "user",
     };
 
     users.push(newUser);
@@ -59,6 +60,7 @@ const registerUser = async (req, res) => {
         id: newUser.id,
         name: newUser.name,
         email: newUser.email,
+        role: newUser.role
       },
     });
   } catch (error) {
@@ -110,6 +112,7 @@ const loginUser = async (req, res) => {
         id: user.id,
         name: user.name,
         email: user.email,
+        role:user.role
       },
     });
   } catch (error) {
