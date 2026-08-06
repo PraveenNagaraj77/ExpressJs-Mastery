@@ -266,3 +266,13 @@ How would you design a production-ready file upload API in Express?"
 You can answer:
 
 I would use Multer for multipart/form-data handling. I would configure disk or external object storage depending on the application's architecture, validate MIME types and file sizes, limit the number of uploaded files, generate unique server-side filenames, and organize files into controlled directories. I would separate the upload configuration, middleware, routes, and controller instead of putting everything into app.js. I would also implement proper Multer error handling and avoid exposing sensitive files publicly. For scalable production systems, I would generally prefer object storage rather than relying on the local filesystem.
+
+
+Why do we use cookies and sessions?"
+
+You can say:
+
+HTTP is stateless, so the server doesn't automatically remember a client between requests. Cookies allow the browser to persist and automatically send information with subsequent requests, while sessions allow the server to maintain user-specific state across those requests. They're commonly used for authentication, shopping carts, user preferences, and maintaining application state.
+
+
+I've implemented JWT authentication with token storage on the client side, and I also understand cookie-based authentication and server-side session authentication. The choice depends on the application's architecture and security requirements
